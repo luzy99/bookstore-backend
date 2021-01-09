@@ -59,5 +59,6 @@ public class Book implements Serializable {
     @TableField("Publisher")
     private String Publisher;
 
-
+    @TableField("Category")
+    private String Category;
 }
