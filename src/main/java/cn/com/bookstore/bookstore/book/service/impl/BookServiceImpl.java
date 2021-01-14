@@ -81,9 +81,10 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
     public List<Book> getBookListHost() {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.orderByDesc("SoldNum");
-        List<Book> books =list(wrapper);
+        List<Book> books = list(wrapper);
 
         return books;
+    }
     public List<Book> getBookList(String ISBN) {
 
         QueryWrapper wrapper = new QueryWrapper();

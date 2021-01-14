@@ -21,7 +21,7 @@ public interface IUserService extends IService<User> {
 
     boolean adduser(User user);
 
-    boolean changePwd(int id,User user);
+
 
     User getUserAddr(Integer memberId);
     boolean modifyUserInfo(int id, User user);

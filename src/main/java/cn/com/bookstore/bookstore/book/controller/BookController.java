@@ -91,7 +91,6 @@ public class BookController {
         }
         return jsonObj;
     }
-    private IBookService bookService;
 
     @RequestMapping(value = "/getBookDetail")
     public JSONObject getBookDetail(String ISBN) {

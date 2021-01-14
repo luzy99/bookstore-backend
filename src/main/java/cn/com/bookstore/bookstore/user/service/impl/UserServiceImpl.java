@@ -42,6 +42,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return save(user);
     }
 
+
     @Override
     public boolean modifyUserInfo(int id, User user) {
         QueryWrapper wrapper = new QueryWrapper();
@@ -56,7 +57,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         User userInfo = getOne(wrapper);
         return userInfo;
     }
-}
+
     public List<User> getUserList(int i) {
 
             QueryWrapper wrapper = new QueryWrapper();
