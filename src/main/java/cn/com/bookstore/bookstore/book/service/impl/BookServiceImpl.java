@@ -3,8 +3,12 @@ package cn.com.bookstore.bookstore.book.service.impl;
 import cn.com.bookstore.bookstore.book.entity.Book;
 import cn.com.bookstore.bookstore.book.mapper.BookMapper;
 import cn.com.bookstore.bookstore.book.service.IBookService;
+import cn.com.bookstore.bookstore.order.entity.Order;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +21,67 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IBookService {
 
+    @Override
+    public Book getbook(String isbn) {
+        QueryWrapper wrapper = new QueryWrapper();
+        // wrapper.eq("MemberID", memberId);
+        wrapper.eq("ISBN", isbn);
+        Book book = getOne(wrapper);
+        return book;
+    }
+
+    @Override
+    public List<Book> getBookListByName(String kw) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("BookName", kw);
+        List<Book> books = list(wrapper);
+
+        return books;
+
+    }
+
+    @Override
+    public List<Book> getBookListByAuthor(String  kw) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("Author", kw);
+        List<Book> books = list(wrapper);
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getBookListByPublisher(String  kw) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("Publisher", kw);
+        List<Book> books = list(wrapper);
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getBookListByISBN(String  kw) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("ISBN", kw);
+        List<Book> books = list(wrapper);
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getBookListNew() {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.orderByDesc("AddTime");
+        List<Book> books =list(wrapper);
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getBookListHost() {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.orderByDesc("SoldNum");
+        List<Book> books =list(wrapper);
+
+        return books;
+    }
 }

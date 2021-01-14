@@ -38,4 +38,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         wrapper.eq("UserID", id);
         return update(user,wrapper);
     }
+
+    @Override
+    public User getUserAddr(Integer memberId) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("UserID", memberId);
+        User userInfo = getOne(wrapper);
+        return userInfo;
+    }
 }

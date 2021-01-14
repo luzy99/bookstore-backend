@@ -3,6 +3,8 @@ package cn.com.bookstore.bookstore.order.service;
 import cn.com.bookstore.bookstore.order.entity.Order;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IOrderService extends IService<Order> {
 
+    Order getOrderInfo(Integer memberId, Integer orderId);
+
+    List<Order> getOrderList(Integer memberId);
+
+    boolean addorder(Order order);
 }

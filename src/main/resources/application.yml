@@ -5,6 +5,8 @@ Server:
     context-path: /api
 
 spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
   servlet:
     multipart:
       enabled: true
