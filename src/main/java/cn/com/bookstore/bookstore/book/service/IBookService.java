@@ -1,6 +1,7 @@
 package cn.com.bookstore.bookstore.book.service;
 
 import cn.com.bookstore.bookstore.book.entity.Book;
+import cn.com.bookstore.bookstore.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.List;
  * @since 2020-12-30
  */
 public interface IBookService extends IService<Book> {
+    List<Book> getBookList(String ISBN);
+    public Book getBookInfo(String ISBN);
 
     Book getbook(String isbn);
 
@@ -28,4 +31,5 @@ public interface IBookService extends IService<Book> {
     List<Book> getBookListNew();
 
     List<Book> getBookListHost();
+    boolean addbook(Book book);
 }

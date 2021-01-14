@@ -3,8 +3,12 @@ package cn.com.bookstore.bookstore.category.service.impl;
 import cn.com.bookstore.bookstore.category.entity.Category;
 import cn.com.bookstore.bookstore.category.mapper.CategoryMapper;
 import cn.com.bookstore.bookstore.category.service.ICategoryService;
+import cn.com.bookstore.bookstore.user.entity.User;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>

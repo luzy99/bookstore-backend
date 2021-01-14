@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 /**
  * <p>
  *  服务实现类
@@ -28,12 +30,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
+    public User getUserInfoByID(int memberID) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("UserID", memberID);
+        User userInfo = getOne(wrapper);
+        return userInfo;
+    }
+
+    @Override
     public boolean adduser(User user) {
         return save(user);
     }
 
     @Override
-    public boolean changePwd(int id,User user) {
+    public boolean modifyUserInfo(int id, User user) {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("UserID", id);
         return update(user,wrapper);
@@ -47,3 +57,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return userInfo;
     }
 }
+    public List<User> getUserList(int i) {
+
+            QueryWrapper wrapper = new QueryWrapper();
+            wrapper.eq("Admin", i);
+            List<User> User = list(wrapper);
+            return User;
+        }
+    }
+
+
