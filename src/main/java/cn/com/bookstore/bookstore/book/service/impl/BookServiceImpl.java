@@ -34,7 +34,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
     @Override
     public List<Book> getBookListByName(String kw) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("BookName", kw);
+        wrapper.like("BookName", kw);
         List<Book> books = list(wrapper);
 
         return books;
@@ -44,7 +44,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
     @Override
     public List<Book> getBookListByAuthor(String  kw) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("Author", kw);
+        wrapper.like("Author", kw);
         List<Book> books = list(wrapper);
 
         return books;
@@ -53,7 +53,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
     @Override
     public List<Book> getBookListByPublisher(String  kw) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("Publisher", kw);
+        wrapper.like("Publisher", kw);
         List<Book> books = list(wrapper);
 
         return books;
@@ -62,7 +62,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
     @Override
     public List<Book> getBookListByISBN(String  kw) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("ISBN", kw);
+        wrapper.like("ISBN", kw);
         List<Book> books = list(wrapper);
 
         return books;
