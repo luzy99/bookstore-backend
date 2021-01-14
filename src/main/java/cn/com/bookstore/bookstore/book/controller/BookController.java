@@ -97,19 +97,21 @@ public class BookController {
         JSONObject jsonObj = new JSONObject();
         try {
             Book book = bookService.getBookInfo(ISBN);
-            jsonObj.put("ISBN",book.getIsbn());
-            jsonObj.put("BookName",book.getBookName());
-            jsonObj.put("Author",book.getAuthor());
-            jsonObj.put("Price",book.getPrice());
-            jsonObj.put("RemainNum",book.getRemainNum());
-            jsonObj.put("SoldNum",book.getSoldNum());
-            jsonObj.put("AddTime",book.getAddTime());
-            jsonObj.put("ReleaseTime",book.getReleaseTime());
-            jsonObj.put("Available",book.getAvailable());
-            jsonObj.put("Picture",book.getPicture());
-            jsonObj.put("Introduction",book.getIntroduction());
-            jsonObj.put("Publisher",book.getPublisher());
-            jsonObj.put("Category",book.getCategory());
+            JSONObject bookObj = new JSONObject();
+            bookObj.put("ISBN",book.getIsbn());
+            bookObj.put("BookName",book.getBookName());
+            bookObj.put("Author",book.getAuthor());
+            bookObj.put("Price",book.getPrice());
+            bookObj.put("RemainNum",book.getRemainNum());
+            bookObj.put("SoldNum",book.getSoldNum());
+            bookObj.put("AddTime",book.getAddTime());
+            bookObj.put("ReleaseTime",book.getReleaseTime().toString());
+            bookObj.put("Available",book.getAvailable());
+            bookObj.put("Picture",book.getPicture());
+            bookObj.put("Introduction",book.getIntroduction());
+            bookObj.put("Publisher",book.getPublisher());
+            bookObj.put("Category",book.getCategory());
+            jsonObj.put("book", bookObj);
             jsonObj.put("errcode", "0");
             jsonObj.put("errmsg", "查询成功");
 

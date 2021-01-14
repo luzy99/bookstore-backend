@@ -37,7 +37,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
         wrapper.like("BookName", kw);
         List<Book> books = list(wrapper);
 
-        return books;
+        return books.subList(0, Math.min(books.size(), 15));
 
     }
 
@@ -46,8 +46,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.like("Author", kw);
         List<Book> books = list(wrapper);
-
-        return books;
+        return books.subList(0, Math.min(books.size(), 15));
     }
 
     @Override
@@ -56,7 +55,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
         wrapper.like("Publisher", kw);
         List<Book> books = list(wrapper);
 
-        return books;
+        return books.subList(0, Math.min(books.size(), 15));
     }
 
     @Override
@@ -65,7 +64,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
         wrapper.like("ISBN", kw);
         List<Book> books = list(wrapper);
 
-        return books;
+        return books.subList(0, Math.min(books.size(), 15));
     }
 
     @Override
@@ -74,7 +73,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
         wrapper.orderByDesc("AddTime");
         List<Book> books =list(wrapper);
 
-        return books;
+        return books.subList(0, Math.min(books.size(), 15));
     }
 
     @Override
@@ -83,14 +82,14 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
         wrapper.orderByDesc("SoldNum");
         List<Book> books = list(wrapper);
 
-        return books;
+        return books.subList(0, Math.min(books.size(), 15));
     }
     public List<Book> getBookList(String ISBN) {
 
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("ISBN", ISBN);
         List<Book> books = list(wrapper);
-        return books;
+        return books.subList(0, Math.min(books.size(), 15));
     }
 
     public Book getBookInfo(String ISBN) {
