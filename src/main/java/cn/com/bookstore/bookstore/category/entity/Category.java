@@ -22,11 +22,16 @@ public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
     @TableId("CategoryID")
     private Integer CategoryID;
 
     @TableField("CName")
     private String CName;
 
+
+    public String getCName() {
+        return CName;
+    }
 
 }

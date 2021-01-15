@@ -1,5 +1,6 @@
 package cn.com.bookstore.bookstore.category.service.impl;
 
+import cn.com.bookstore.bookstore.book.entity.Book;
 import cn.com.bookstore.bookstore.category.entity.Category;
 import cn.com.bookstore.bookstore.category.mapper.CategoryMapper;
 import cn.com.bookstore.bookstore.category.service.ICategoryService;
@@ -21,4 +22,12 @@ import java.util.List;
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements ICategoryService {
 
+    @Override
+    public Category getCategory(String category) {
+        QueryWrapper wrapper = new QueryWrapper();
+        // wrapper.eq("MemberID", memberId);
+        wrapper.eq("CategoryID", category);
+        Category category1 = getOne(wrapper);
+        return category1;
+    }
 }

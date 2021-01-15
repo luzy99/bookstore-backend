@@ -3,6 +3,8 @@ package cn.com.bookstore.bookstore.book.controller;
 
 import cn.com.bookstore.bookstore.book.entity.Book;
 import cn.com.bookstore.bookstore.book.service.IBookService;
+import cn.com.bookstore.bookstore.category.entity.Category;
+import cn.com.bookstore.bookstore.category.service.ICategoryService;
 import cn.com.bookstore.bookstore.order.entity.Order;
 import cn.com.bookstore.bookstore.user.entity.User;
 import cn.com.bookstore.bookstore.user.service.IUserService;
@@ -31,6 +33,9 @@ public class BookController {
 
     @Autowired
     IBookService bookService;
+
+    @Autowired
+    ICategoryService categoryService;
 
     @RequestMapping("/getBookList")
     public JSONObject getBookList(Integer type,String kw) {
@@ -110,7 +115,8 @@ public class BookController {
             bookObj.put("Picture",book.getPicture());
             bookObj.put("Introduction",book.getIntroduction());
             bookObj.put("Publisher",book.getPublisher());
-            bookObj.put("Category",book.getCategory());
+            Category category=categoryService.getCategory(book.getCategory());
+            bookObj.put("Category",category.getCName());
             jsonObj.put("book", bookObj);
             jsonObj.put("errcode", "0");
             jsonObj.put("errmsg", "查询成功");
